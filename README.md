@@ -1,12 +1,14 @@
-# Proyecto Logica Katas Python
+"Proyecto Logica Katas Python."
 
 Este proyecto contiene una serie de consultas o ejercicios para generar funciones o codigo en python por medio de vscode. A continuación, se describe el contenido del archivo `.ipynb` y las consultas que se han realizado.
 
-## Descripción del Archivo SQL
+"Descripción del Archivo SQL"
 
 El archivo `proyecto_logica_katas_python.ipynb` contiene varios ejercicios con su respectivas soluciones o respuestas segun los parametros indicados.
 
-# Pregunta 1: Contar frecuencia de letras en una cadena
+"""Pregunta 1: Contar frecuencia de letras en una cadena"""
+
+
 def contar_letras(cadena="Aprendiendo Python"):
     """Devuelve un diccionario con la frecuencia de cada letra en la cadena, ignorando espacios."""
     resultado = {letra: cadena.count(letra) for letra in set(cadena) if letra != " "}
@@ -14,7 +16,8 @@ def contar_letras(cadena="Aprendiendo Python"):
 resultado = contar_letras()
 print(resultado)
 
-# Pregunta 2 Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map()
+
+"""Pregunta 2 Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map()"""
 
 numeros = [2,30,33,29,7,8]
 numeros_al_doble = list(map(lambda x: x*2, numeros))
@@ -22,8 +25,9 @@ numeros_al_doble = list(map(lambda x: x*2, numeros))
 print("Lista original", numeros)
 print("lista con el doble de cada numero", numeros_al_doble)
 
-#Pregunta 3 Escribe una función que tome una lista de palabras y una palabra objetivo como parámetros. 
-#La función debe devolver una lista con todas las palabras de la lista original que contengan la palabra objetivo.
+
+"""Pregunta 3 Escribe una función que tome una lista de palabras y una palabra objetivo como parámetros. 
+La función debe devolver una lista con todas las palabras de la lista original que contengan la palabra objetivo."""
 
 def filtrar_palabras(lista, objetivo):
     return[palabra for palabra in lista if objetivo in palabra]
@@ -34,7 +38,7 @@ resultado3 = filtrar_palabras(palabras,objetivo)
 print(resultado3)
 
 
-# Pregunta 4 Genera una función que calcule la diferencia entre los valores de dos listas. Usa la función map()
+"""Pregunta 4 Genera una función que calcule la diferencia entre los valores de dos listas. Usa la función map()"""
 
 def diferencia_listas(lista1, lista2):
     return list(map(lambda x, y: x-y, lista1, lista2))
@@ -46,10 +50,9 @@ resultado4 = diferencia_listas(lista1,lista2)
 print(resultado4)
 
 
-Pregunta 5 Esribe una función que tome una lista de números como parámetro y un valor opcional nota_aprobado, 
-# que por defecto es 5. La función debe calcular la media de los números en la lista y determinar si
-# la media es mayor o igual que nota aprobado. Si es así, el estado será "aprobado", de lo contrario, será "suspenso". 
-# La función debe devolver una tupla que contenga la media y el estado.
+"""Pregunta 5 Esribe una función que tome una lista de números como parámetro y un valor opcional nota_aprobado, que por defecto es 5. La función debe calcular la media de los números en la lista y determinar si la media es mayor o igual que nota aprobado. Si es así, el estado será "aprobado", de lo contrario, será "suspenso". La función debe devolver una tupla que contenga la media y el estado."""
+
+
 notas = [5,7,8,5,7.5]
 
 def nota_estado(notas, nota_aprobado=5):
@@ -69,7 +72,9 @@ resultado5 = nota_estado(notas)
 print(resultado5)
 
 
-#Pregunta 6 Escribe una función que calcule el factorial de un número de manera recursiva.
+"""Pregunta 6 Escribe una función que calcule el factorial de un número de manera recursiva."""
+
+
 numero = 6
 
 def factorial(n):
@@ -83,7 +88,9 @@ resultado6 =factorial(numero)
 print(f"El facotorial de {numero} es {resultado6}")
 
 
-#Pregunta 7 Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map()
+"""Pregunta 7 Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map()"""
+
+
 tuplas = [(1, 2), (7, 8, 9), ("Feliz", "Semana")]
 
 def tuplas_a_strings(lista_tuplas):
@@ -93,9 +100,9 @@ resultado7 = tuplas_a_strings(tuplas)
 print(resultado7)
 
 
-# Pregunta 8 
-# Escribe un programa que pida al usuario dos números e intente dividirlos. Si el usuario ingresa un valor no numérico o intenta dividir por cero, 
-# maneja esas excepciones de manera adecuada. Asegúrate de mostrar un mensaje indicando si la división fue exitosa o no.
+"""Pregunta 8 Escribe un programa que pida al usuario dos números e intente dividirlos. Si el usuario ingresa un valor no numérico o intenta dividir por cero, maneja esas excepciones de manera adecuada. Asegúrate de mostrar un mensaje indicando si la división fue exitosa o no."""
+
+
 def dividir():
     try:
         num1 = float(input("ingrese el primer numero: "))
@@ -113,9 +120,9 @@ def dividir():
 #como ejemplo puse primer numero 29 y segundo 2
 dividir()
 
-#Pregunta 9
-#Escribe una función que tome una lista de nombres de mascotas como parámetro y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España. 
-#La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"].Usa la función filter()
+"""Pregunta 9 Escribe una función que tome una lista de nombres de mascotas como parámetro y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España. La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"].Usa la función filter()"""
+
+
 mascotas = ["Perro,", "Gato", "Conejo", "Mapache", "Tigre", "Canario", "Serpiente Piton", "Cocodrilo", "Oso"]
 
 def filtrar_mascotas_permitidas(lista_mascotas):
@@ -126,9 +133,9 @@ resultado9 = filtrar_mascotas_permitidas(mascotas)
 print("Mascotas permitidas:", resultado9)
 
 
-#Pregunta 10
-#Escribe una función que reciba una lista de números y calcule su promedio. Si la lista está vacía, lanza una 
-# excepción personalizada y maneja el error adecuadamente.
+"""Pregunta 10 Escribe una función que reciba una lista de números y calcule su promedio. Si la lista está vacía, lanza una excepción personalizada y maneja el error adecuadamente."""
+
+
 class ListaVaciaError(Exception):
     """Exception personalizada para listas vacias"""
     pass
@@ -145,9 +152,7 @@ except ListaVaciaError as i:
     print(i)
 
 
-    #Pregunta 11
-#Esribe un programa que pida al usuario que introduzca su edad. Si el usuario ingresa un valor no numérico o un valor fuera del rango esperado 
-#(por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente.
+"""Pregunta 11 Esribe un programa que pida al usuario que introduzca su edad. Si el usuario ingresa un valor no numérico o un valor fuera del rango esperado (por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente."""
 
 def pedir_edad():
     try:
@@ -165,8 +170,9 @@ pedir_edad()
 
 
 
-#Pregunta 12 
-#Genera una función que al recibir una frase devuelva una lista con la longitud de cada palabra. Usa la función map()
+"""Pregunta 12 Genera una función que al recibir una frase devuelva una lista con la longitud de cada palabra. Usa la función map()"""
+
+
 frase = ("Estoy aprendiendo Phyton")
 
 def longitud_palabras(frase):
@@ -176,9 +182,9 @@ result
 
 
 
-#Pregunta 13
-#Genera una función la cual, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas.
-#Las letras no pueden estar repetidas .Usa la función map()
+"""Pregunta 13 Genera una función la cual, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas. Las letras no pueden estar repetidas .Usa la función map()"""
+
+
 caracteres = "python"
 
 def mayusculas_minusculas(conjunto):
@@ -189,9 +195,9 @@ resultado
 
 
 
-#Pregunta 14
-#Creaa una función que retorne las palabras de una lista de palabras que comience con una letra en especifico.
-#Usa la función filter()
+"""Pregunta 14 Creaa una función que retorne las palabras de una lista de palabras que comience con una letra en especifico.Usa la función filter()"""
+
+
 palabras = ["perro", "gato", "gusano", "paloma"]
 letra = "p"
 
@@ -212,9 +218,9 @@ resultado = sumar_tres(numeros)
 resultado
 
 
-#Pregunta 16 
-#Esribe una función que tome una cadena de texto y un número entero n como parámetros y devuelva una lista de
-#todas las palabras que sean más largas que n. Usa la función filter
+"""Pregunta 16 Esribe una función que tome una cadena de texto y un número entero n como parámetros y devuelva una lista de todas las palabras que sean más largas que n. Usa la función filter"""
+
+
 texto = "Este es el ejercicio decimo sexto del proyecto"
 n = 4
 
@@ -225,10 +231,11 @@ resultado = palabras_mas_largas(texto, n)
 resultado
 
 
-#Pregunta 17 
-#Crea una función que tome una lista de dígitos y devuelva el número correspondiente. 
-# Por ejemplo, 5,7,2 corresponde al número quinientos setenta y dos 572. Usa la función reduce()
-from functools import reduce
+"""Pregunta 17 Crea una función que tome una lista de dígitos y devuelva el número correspondiente. 
+Por ejemplo, 5,7,2 corresponde al número quinientos setenta y dos 572. Usa la función reduce()
+from functools import reduce"""
+
+
 digitos = [5, 7, 2]
 
 def lista_a_numero(digitos):
@@ -238,10 +245,9 @@ numero = lista_a_numero(digitos)
 numero
 
 
-#Pregunta 18
-#Esribe un programa en Python que cree una lista de diccionarios que contenga información de estudiantes (nombre, edad, calificación) 
-#y use la función filter para extraer a los estudiantes con una calificación mayor o igual a 90. 
-#Usa la función filter()
+"""Pregunta 18 Esribe un programa en Python que cree una lista de diccionarios que contenga información de estudiantes (nombre, edad, calificación) y use la función filter para extraer a los estudiantes con una calificación mayor o igual a 90. Usa la función filter()""".
+
+
 estudiantes = [
     {'nombre': 'Luis', 'edad': 20, 'calificacion': 75},
     {'nombre': 'Maria', 'edad': 25, 'calificacion': 93},
@@ -256,7 +262,7 @@ estudiantes_aprobados = estudiantes_calificacion(estudiantes)
 estudiantes_aprobados
 
 
-#Pregunta 19 Crea una función lambda que filtre los números impares de una lista dada.
+"""Pregunta 19 Crea una función lambda que filtre los números impares de una lista dada."""
 
 numeros = [ 2,3,6,7,8,12,13]
 
@@ -267,9 +273,7 @@ resultado = filtrar_impares(numeros)
 resultado
 
 
-#Pregunta 20 
-#Crea una lista con elementos tipo integer y string obtén una nueva lista sólo con los valores int.
-#Usa la función filter()
+"""Pregunta 20 Crea una lista con elementos tipo integer y string obtén una nueva lista sólo con los valores int.Usa la función filter()"""
 
 lista = [ 7, "Python", 29, 8, "ejercicios"]
 
@@ -281,7 +285,7 @@ resultado = filtrar_enteros(lista)
 resultado
 
 
-#Pregunta 21 Creaa una función que calcule el cubo de un número dado mediante una función lambda
+"""Pregunta 21 Creaa una función que calcule el cubo de un número dado mediante una función lambda"""
 
 numero = 7
 
@@ -292,7 +296,7 @@ resultado = numero_al_cubo(numero)
 resultado
 
 
-#Pregunta 22 Crea una lista numérica, obtén el producto total de los valores de dicha lista.Usa la función reduce().
+"""Pregunta 22 Crea una lista numérica, obtén el producto total de los valores de dicha lista.Usa la función reduce()."""
 
 from functools import reduce
 lista = [4,5,6,2,3]
@@ -303,7 +307,8 @@ def producto_total(lista):
 resultado = producto_total(lista)
 resultado
 
-#Pregunta 23 Concatena una lista de palabras.Usa la función reduce().
+
+"""Pregunta 23 Concatena una lista de palabras.Usa la función reduce()."""
 
 from functools import reduce
 
@@ -317,7 +322,7 @@ resultado
 
 
 
-#Pregunta 24 Calcula la diferencia total en los valores de una lista. Usa la función reduce().
+"""Pregunta 24 Calcula la diferencia total en los valores de una lista. Usa la función reduce()."""
 
 from functools import reduce
 numeros = [88, 15, 25, 6]
@@ -330,7 +335,9 @@ resultado
 
 
 
-#Pregunta 25 Crea una función que cuente el número de caracteres en una cadena de texto dada.
+"""Pregunta 25 Crea una función que cuente el número de caracteres en una cadena de texto dada."""
+
+
 texto = "Soy analista de datos"
 
 def contar_caracteres(cadena):
@@ -340,7 +347,7 @@ resultado = contar_caracteres(texto)
 resultado
 
 
-#Pregunta 26 Crea una función lambda que calcule el resto de la división entre dos números dados.
+"""Pregunta 26 Crea una función lambda que calcule el resto de la división entre dos números dados."""
 
 resto_division = lambda x, y: x % y
 
@@ -348,8 +355,7 @@ resultado = resto_division(28,3)
 resultado
 
 
-
-#Pregunta 27 Crea una función que calcule el promedio de una lista de números.
+"""Pregunta 27 Crea una función que calcule el promedio de una lista de números."""
 
 numeros = [10,20,30,40,50]
 
@@ -364,7 +370,7 @@ resultado
 
 
 
-#Pregunta 28 Crea una función que busque y devuelva el primer elemento duplicado en una lista dada
+"""Pregunta 28 Crea una función que busque y devuelva el primer elemento duplicado en una lista dada"""
 
 numeros = [ 2,3,4,5,1,2,5,3,8]
 
@@ -380,9 +386,7 @@ print(primer_duplicado(numeros))
 
 
 
-#Pregunta 29 
-#Crea una función que convierta una variable en una cadena de texto y enmascare todos los caracteres con el carácter '#', 
-#excepto los últimos cuatro.
+"""Pregunta 29 Crea una función que convierta una variable en una cadena de texto y enmascare todos los caracteres con el carácter '#', excepto los últimos cuatro."""
 
 texto = "contraseña"
 
@@ -397,8 +401,9 @@ print(enmascarar(texto))
 
 
 
-#Pregunta 30 
-#Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas letras pero en diferente orden.
+"""Pregunta 30 Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas letras pero en diferente orden."""
+
+
 palabra1 = "amor"
 palabra2 = "mora"
 def son_anagramas(palabra1, palabra2):
@@ -408,9 +413,7 @@ print(son_anagramas(palabra1, palabra2))
 
 
 
-#Pregunta 31 
-#Crea una función que solicite al usuario ingresar una lista de nombres y luego solicite un nombre para buscar en esa lista.
-#Si el nombre está en la lista, se imprime un mensaje indicando que fue encontrado, de lo contrario, se lanza una excepción
+"""Pregunta 31 Crea una función que solicite al usuario ingresar una lista de nombres y luego solicite un nombre para buscar en esa lista. Si el nombre está en la lista, se imprime un mensaje indicando que fue encontrado, de lo contrario, se lanza una excepción"""
 
 
 def buscar_nombre():
@@ -428,8 +431,7 @@ buscar_nombre()
 
 
 
-#Pregunta 32 Crea una función que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista 
-#y devuelve el puesto del empleado si está en la lista, de lo contrario, devuelve un mensaje indicando que la persona no trabaja aquí.
+"""Pregunta 32 Crea una función que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y devuelve el puesto del empleado si está en la lista, de lo contrario, devuelve un mensaje indicando que la persona no trabaja aquí."""
 
 empleados = {"Luis Cid": "Gerente", 
               "Ana Lopez": "Analista de datos",
@@ -447,7 +449,7 @@ print(buscar_puesto("Miguel Lopez", empleados))
 
 
 
-#Pregunta 33  Crea una función lambda que sume elementos correspondientes de dos listas dadas.
+"""Pregunta 33  Crea una función lambda que sume elementos correspondientes de dos listas dadas."""
 
 lista1 = [2,3,4,5]
 lista2 = [4,13,56,32]
@@ -458,10 +460,7 @@ resultado = sumar_listas(lista1,lista2)
 resultado
 
 
-#Pregunta 34 
-#Crea la clase Arbol , define un árbol genérico con un tronco y ramas como atributos. 
-#Los métodos disponibles son:crecer_tronco , nueva_rama , crecer_ramas , quitar_rama e info_arbol . 
-#El objetivo es implementar estos métodos para manipular la estructura del árbol.
+"""Pregunta 34 Crea la clase Arbol , define un árbol genérico con un tronco y ramas como atributos. Los métodos disponibles son:crecer_tronco , nueva_rama , crecer_ramas , quitar_rama e info_arbol. El objetivo es implementar estos métodos para manipular la estructura del árbol."""
 
 class Arbol:
     def __init__(self):
@@ -504,9 +503,7 @@ print(info)
 
 
 
-#Pregunta 36 
-#Crea la clase UsuarioBanco ,representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta corriente. 
-#Proporciona métodos para realizar operaciones como retirar dinero, transferir dinero desde otro usuario y agregar dinero al saldo.
+"""Pregunta 36 Crea la clase UsuarioBanco ,representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta corriente. Proporciona métodos para realizar operaciones como retirar dinero, transferir dinero desde otro usuario y agregar dinero al saldo."""
 
 class UsuariBanco:
     def __init__(self, nombre, saldo, cuenta_corriente=True):
@@ -540,9 +537,7 @@ print(f"{bob.nombre}: {bob.saldo}")
 
 
 
-#Pregunta 37 
-#Crea una función llamada procesar_texto que procesa un texto según la opción especificada: contar_palabras , reemplazar_palabras , 
-#eliminar_palabra . Estas opciones son otras funciones que tenemos que definir primero y llamar dentro de la función procesar_texto .
+"""Pregunta 37 Crea una función llamada procesar_texto que procesa un texto según la opción especificada: contar_palabras, reemplazar_palabras, eliminar_palabra. Estas opciones son otras funciones que tenemos que definir primero y llamar dentro de la función procesar_texto."""
 
 
 def contar_palabras(texto):
@@ -577,7 +572,7 @@ print(procesar_texto(texto, "reemplazar", "niña", "perra"))
 print(procesar_texto(texto, "eliminar", "la"))
 
 
-#Pregunta 38 Genera un programa que nos diga si es de noche, de día o tarde según la hora proporcionada por el usuario.
+"""Pregunta 38 Genera un programa que nos diga si es de noche, de día o tarde según la hora proporcionada por el usuario."""
 
 def determinar_momento_dia(hora):
     if 6 <= hora < 12:
@@ -597,8 +592,7 @@ except ValueError:
     
 
 
-#Pregunta 39 
-#Escribe un programa que determine qué calificación en texto tiene un alumno en base a su calificación numérica. Las reglas de calificación son:
+"""Pregunta 39 Escribe un programa que determine qué calificación en texto tiene un alumno en base a su calificación numérica. Las reglas de calificación son:"""
 
 def determinar_calificacion(nota):
     if 0 <= nota <= 69:
@@ -620,9 +614,7 @@ except ValueError:
 
 
 
-#Pregunta 40 
-#Escribe una función que tome dos parámetros: figura (una cadena que puede ser "rectangulo" , "circulo" o "triangulo" ) 
-#y datos (una tupla con los datos necesarios para calcular el área de la figura).
+"""Pregunta 40 Escribe una función que tome dos parámetros: figura (una cadena que puede ser "rectangulo" , "circulo" o "triangulo") y datos (una tupla con los datos necesarios para calcular el área de la figura)."""
 
 import math
 
@@ -659,7 +651,7 @@ print(calcular_area("cuadrado", (2, 2)))
 
 
 
-#Pregunta 41
+"Pregunta 41"
 
 try:
     precio_original = float(input("Ingresa el precio original del articulo: "))
