@@ -10,11 +10,16 @@ El archivo `proyecto_logica_katas_python.ipynb` contiene varios ejercicios con s
 
 
 def contar_letras(cadena="Aprendiendo Python"):
-    """Devuelve un diccionario con la frecuencia de cada letra en la cadena, ignorando espacios."""
-    resultado = {letra: cadena.count(letra) for letra in set(cadena) if letra != " "}
+    """Devuelve un diccionario con la frecuencia de cada letra en la cadena, ignorando espacios."""   
+    resultado = {} 
+
+    for letra in cadena:
+        if letra != " ":  # Ignorar espacios
+            resultado[letra] = resultado.get(letra, 0) + 1
+    
     return resultado
-resultado = contar_letras()
-print(resultado)
+
+print(contar_letras("Aprendiendo Python"))
 
 
 """Pregunta 2 Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map()"""
@@ -78,14 +83,18 @@ print(resultado5)
 numero = 6
 
 def factorial(n):
+    """Calcula el factorial de un número de manera recursiva.
+    Lanza un ValueError si el número es negativo."""
     if n < 0:
-        print("Error, el numero no puede ser negativo")
+        raise ValueError("Error, el número no puede ser negativo")
     if n == 0 or n == 1:
         return 1
-    return n *factorial(n-1)
+    return n * factorial(n - 1)
 
-resultado6 =factorial(numero)
-print(f"El facotorial de {numero} es {resultado6}")
+try:
+    print(factorial(6))
+except ValueError as resultado:
+    print(resultado)
 
 
 """Pregunta 7 Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map()"""
@@ -256,10 +265,10 @@ estudiantes = [
 ]
 
 def estudiantes_calificacion(estudiantes):
-    return list(filter(lambda estudiante: estudiante['calificacion']>=90, estudiantes))
+    """Devuelve una lista de estudiantes con calificación mayor o igual a 90."""
+    return [estudiante for estudiante in estudiantes if estudiante['calificacion'] >= 90]
 
-estudiantes_aprobados = estudiantes_calificacion(estudiantes)
-estudiantes_aprobados
+print(estudiantes_calificacion(estudiantes))
 
 
 """Pregunta 19 Crea una función lambda que filtre los números impares de una lista dada."""
@@ -464,30 +473,34 @@ resultado
 
 class Arbol:
     def __init__(self):
+        """Inicializa el árbol con un tronco y sin ramas."""
         self.tronco = 1
         self.ramas = []
 
     def crecer_tronco(self):
+        """Incrementa la longitud del tronco."""
         self.tronco += 1
 
     def nueva_rama(self):
+        """Añade una nueva rama con longitud 1."""
         self.ramas.append(1)
         
     def crecer_ramas(self):
+        """Incrementa la longitud de cada rama en 1."""
         self.ramas = [rama + 1 for rama in self.ramas]
 
     def quitar_rama(self, posicion):
+        """Elimina una rama en la posición dada si es válida."""
         if 0 <= posicion < len(self.ramas):
             self.ramas.pop(posicion)
         else:
-            print("Posicion invalida")
+            print("Posición inválida")
     
     def info_arbol(self):
-        return {
-            "Longitud del tronco": self.tronco,
-            "Numero de ramas": len(self.ramas),
-            "Longitudes de las ramas": self.ramas
-        }
+        """Imprime la información del árbol en lugar de retornarla."""
+        print(f"Longitud del tronco: {self.tronco}")
+        print(f"Número de ramas: {len(self.ramas)}")
+        print(f"Longitudes de las ramas: {self.ramas}")
 
 
 arbol = Arbol()
@@ -497,40 +510,44 @@ arbol.crecer_ramas()
 arbol.nueva_rama()
 arbol.nueva_rama()
 arbol.quitar_rama(2)
-info = arbol.info_arbol()
-
-print(info)
+arbol.info_arbol()
 
 
 
 """Pregunta 36 Crea la clase UsuarioBanco ,representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta corriente. Proporciona métodos para realizar operaciones como retirar dinero, transferir dinero desde otro usuario y agregar dinero al saldo."""
 
-class UsuariBanco:
+class UsuarioBanco:
     def __init__(self, nombre, saldo, cuenta_corriente=True):
+        """Inicializa un usuario del banco con nombre, saldo y si tiene cuenta corriente."""
         self.nombre = nombre
         self.saldo = saldo
         self.cuenta_corriente = cuenta_corriente
 
     def retirar_dinero(self, cantidad):
+        """Retira dinero de la cuenta si hay saldo suficiente."""
         if cantidad > self.saldo:
             raise ValueError("Saldo insuficiente para realizar el retiro.")
         self.saldo -= cantidad
 
     def transferir_dinero(self, otro_usuario, cantidad):
+        """Transfiere dinero a otro usuario si hay saldo suficiente."""
         if cantidad > self.saldo:
             raise ValueError("Saldo insuficiente para realizar la transferencia.")
+        self.saldo -= cantidad
+        otro_usuario.agregar_dinero(cantidad)
 
-    def agrgar_dinero(self, cantidad):
+    def agregar_dinero(self, cantidad):
+        """Agrega dinero al saldo del usuario."""
         self.saldo += cantidad
 
 
-alicia = UsuariBanco("Alicia", 100, True)
-bob = UsuariBanco("Bob", 50, True)
+alicia = UsuarioBanco("Alicia", 100, True)
+bob = UsuarioBanco("Bob", 50, True)
 
-
-bob.agrgar_dinero(20)
-bob.transferir_dinero(alicia, 80)
+bob.agregar_dinero(20)
 alicia.retirar_dinero(50)
+bob.transferir_dinero(alicia, 80)
+
 
 print(f"{alicia.nombre}: {alicia.saldo}")
 print(f"{bob.nombre}: {bob.saldo}")
@@ -621,31 +638,31 @@ import math
 def calcular_area(figura, datos):
     figura = figura.lower()
     if figura == "rectangulo":
-        if len(datos) == 2:
+        if len(datos) == 2 and all(d > 0 for d in datos):
             base, altura = datos
             return base * altura
         else:
-            return "Error: El rectangulo requiere base y altura"
+            return "Error: El rectángulo requiere base y altura positivos."
         
     elif figura == "circulo":
-        if len(datos) == 1:
+        if len(datos) == 1 and datos[0] > 0:
             radio, = datos
-            return math.pi * (radio **2)
+            return math.pi * (radio ** 2)
         else:
-            return "Error: El circulo requiere solo el radio."
+            return "Error: El círculo requiere un radio positivo."
         
     elif figura == "triangulo":
-        if len(datos) == 2:
+        if len(datos) == 2 and all(d > 0 for d in datos):
             base, altura = datos
             return (base * altura) / 2
         else:
-            return "Error: El triangulo requiere base y altura"
+            return "Error: El triángulo requiere base y altura positivos."
         
     else:
-        return "Error: Figura no reconocida. Usa 'rectangulo', 'triangulo', o 'ciruclo'."
+        return "Error: Figura no reconocida. Usa 'rectángulo', 'triángulo' o 'círculo'."
 
 print(calcular_area("circulo", (6,)))
-print(calcular_area("triangulo", (4,8)))
+print(calcular_area("triangulo", (4, 8)))
 print(calcular_area("rectangulo", (3, 6)))
 print(calcular_area("cuadrado", (2, 2)))
 
